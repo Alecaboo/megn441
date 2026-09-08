@@ -5,6 +5,9 @@ ros2_ws/install
 ros2_ws/log
 ros2_ws/src/OrbbecSDK_ROS2
 ros2_ws/src/sllidar_ros2
+demo_ws/build
+demo_ws/install
+demo_ws/log
 dev_ws
 test_ws
 .vscode
