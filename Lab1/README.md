@@ -1,3 +1,9 @@
+---
+title: Lab 1 Description
+author: MEGN 441
+date: Fall 2026
+---
+
 # Lab 1: Introduction to Rosbots, ROS2 packages, and remote control
 
 The goal of this lab is to get you oriented to the bots we will be using this semester. I'll be referring to them as `Rosbots`, but they're actually JetRovers from the company HiWonder. These bots are equipped with the following components:
@@ -21,14 +27,12 @@ There are 3 options to connect to the Rosbots. In all approaches, the Rosbot wil
 
 ## Lab Overview
 
-By the end of this lab, you will be able to:
+In this lab, you will learn to use ROS2 Humble to program your Rosbots. You will get oriented to connecting and developing on the bots and then use a builtin package to teleoperate the bot from your keyboard. Then, you will write your own ROS2 package to teleoperate the bots with a controller. By the end of this lab, you will be able to:
 
 - Use ROS2 packages and topics
 - Write a launch file
 - Make your robot drive!
 - Write your own ROS2 node to control your robot with a joystick.
-
-You'll be able to get the Robot driving around with both the keyboard and a handheld controller.
 
 ### Lab Procedure
 
@@ -38,20 +42,26 @@ You'll be able to get the Robot driving around with both the keyboard and a hand
 
 ```bash
 cd ~/megn441/ros2_ws
-rsync -ruv src ubuntu@192.149.168.1:~/ros2_ws/
+rsync -ruv src ubuntu@192.168.149.1:~/ros2_ws/
 ```
 
 4. On the robot, build the ros2 workspace by navigating to `~/ros2_ws` and using `colcon`. See course notes for support on this, and **don't forget to source `install/setup.bash`**.
-5. On the robot now, if there is nothing currently running, run the launch file `bringup.launch.py` from the package `bringup`. This will run launch files within the `controller` package to get the drive functionality of the robot up and running.
-6. To drive the robot, in a separate terminal, run the node (not launch file) `teleop_twist_keyboard` from the package `teleop_twist_keyboard`. Now you should be able to drive your robot around!
-7. The next goal is to launch this driving all at once! First, we need to create a package, which we'll call `rosbot`. Navigate to `ros2_ws/src/` and use the following command (change `ament_python` to `ament_cmake` if you prefer C++). In the next step, we'll create a node called `teleop_joy`. The `--node-name` flag here will create that node and tell the package about its existence.
+5. If there is nothing currently running on the robot, run the launch file `bringup.launch.py` from the package `bringup`. This will run launch files within the `controller` package to get the drive functionality of the robot up and running.
+6. Investigate some of the topics that are currently available with `ros2 topic list`. Use `ros2 topic info` to learn about the msg type for a few of the topics. If you use the `-v` flag, it will tell you more information. I'll have you report on 3 of the topics you learn about in the report.
+7. To drive the robot, in a separate terminal, run the node (not launch file) `teleop_twist_keyboard` from the package `teleop_twist_keyboard`. Now you should be able to drive your robot around!
+8. The next goal is to launch this driving all at once! First, we need to create a package, which we'll call `rosbot`. Navigate to `ros2_ws/src/` and use the following command (change `ament_python` to `ament_cmake` if you prefer C++). In the next step, we'll create a node called `teleop_joy`. The `--node-name` flag here will create that node and tell the package about its existence.
 
 ``` bash
 ros2 pkg create rosbot --build-type ament_python --node-name teleop_joy --dependencies teleop_twist_keyboard bringup
 ```
 
-8. Create a directory within `~ros2_ws/src/rosbot` called `launch`. Copy a launch file template from the Lab1 folder here into `~/ros2_ws/src/rosbot/launch`. You will need to modify either `setup.py` or `CMakeLists.txt` to make `colcon` aware of the launch folder. See the [ROS2 Humble launch docs](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-system.html) for help. Use your launch file to call both `teleop_twist_keyboard.launch.py` and `bringup.launch.py`. For `teleop_twist_keyboard`, you'll also need to use `xterm`.
-9. Then, write a node to read data from the `/ros_robot_controller/joy` topic and output to `/cmd_vel`. To figure out what the joystick does, make sure that `ros_robot_controller` is running, connect your controller, and use `ros2 topic echo ros_robot_controller/joy`. You'll be able to see the topic outputs when the controller buttons are pressed. After you write your node and run it, you can drive your robot with the controller!
+9. Create a directory within `~ros2_ws/src/rosbot` called `launch`. Copy a launch file template from the Lab1 folder here into `~/ros2_ws/src/rosbot/launch`. You will need to modify either `setup.py` or `CMakeLists.txt` to make `colcon` aware of the launch folder. See the [ROS2 Humble launch docs](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Launch-system.html) for help. Use your launch file to call both `teleop_twist_keyboard` and `bringup.launch.py`. For `teleop_twist_keyboard`, you may want to launch it with `xterm`, so it pops up in its own window. Do this by adding the following within the Node to launch teleop_twist_keyboard:
+
+```bash
+prefix=['xterm -e'],
+```
+
+10. Then, write a node to read data from the `/ros_robot_controller/joy` topic and output to `/cmd_vel`. To figure out what the joystick does, make sure that `ros_robot_controller` is running, connect your controller, and use `ros2 topic echo ros_robot_controller/joy`. You'll be able to see the topic outputs when the controller buttons are pressed. See Lecture 4 materials to help you write the node. After you write your node and run it, you can drive your robot with the controller!
 
 ## Lab Grading
 
@@ -67,12 +77,28 @@ The guidelines below will be used in grading your lab report. Be sure to include
 
 #### 1. Problem Statement
 
+- Write a succinct 1-3 sentence description of the goals of this lab.
+
 #### 2. Methods
 
-- Briefly describe the Rosbot, including a description of the drivetrain in your own words.
-- 
+- Briefly describe the Rosbot, including a description of the drivetrain.
+- Describe your contributions to the software of the robot for Lab 1.
+- Explain 3 topics running on the Rosbots. What is the msg type that is sent to each of those topics? Which nodes publish to or subscribe to each of those topics?
 
 #### 3. Results
+
+- Describe how driving with the keyboard works.
+- Include a link to a video of piloting the bot with the keyboard.
+- Report on how your controller driving node works.
+- Include a link to a video of piloting the bot with the controller.
+- Report on what is included in your launch file.
+- Include a .zip file of the package you wrote with your submission and describe where in the folder yoru launch file and joystick node can be found.
+
+#### 4. Conclusions
+
+- Discuss the performance of the different approaches to remotely piloting the robot.
+- Discuss what your team's biggest lessons learned are from this lab.
+- Discuss your current thoughts on pros vs cons of using ROS2 to create a robot.
 
 #### AI Appendix
 
@@ -81,4 +107,4 @@ The guidelines below will be used in grading your lab report. Be sure to include
   - If no, how could it have helped? What did you gain by avoiding AI use?
   - If yes, how was your experience of using it? How did it help? What did you miss out on by using AI?
   - If you used AI, what resources do you think it used in generating its answers?
-  - If you used AI, please copy and paste your interactions below.
+  - If you used AI, please copy and paste your interactions below:

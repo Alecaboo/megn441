@@ -1,0 +1,4 @@
+[console_scripts]
+demo_pub = demo_pubsub.demo_pub:main
+demo_sub = demo_pubsub.demo_sub:main
+
