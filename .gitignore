@@ -7,5 +7,6 @@ ros2_ws/src/OrbbecSDK_ROS2
 ros2_ws/src/sllidar_ros2
 moveit_ws
 test_ws
+dev_ws
 .vscode
 *.zip
