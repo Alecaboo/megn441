@@ -8,5 +8,6 @@ demo_ws/build
 demo_ws/install
 demo_ws/log
 test_ws
+dev_ws
 moveit_ws
 *.zip
