@@ -1,0 +1,26 @@
+[1.438s] Invoking command in '/home/ubuntu/ros2_ws/src/rosbot/build/rosbot': PYTHONPATH=/home/ubuntu/ros2_ws/src/rosbot/build/rosbot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/ros2_ws/src/rosbot/install/rosbot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/ros2_ws/src/rosbot/build/rosbot/build --no-deps symlink_data
+[2.065s] running develop
+[2.503s] running egg_info
+[2.504s] creating rosbot.egg-info
+[2.504s] writing rosbot.egg-info/PKG-INFO
+[2.504s] writing dependency_links to rosbot.egg-info/dependency_links.txt
+[2.505s] writing entry points to rosbot.egg-info/entry_points.txt
+[2.505s] writing requirements to rosbot.egg-info/requires.txt
+[2.505s] writing top-level names to rosbot.egg-info/top_level.txt
+[2.506s] writing manifest file 'rosbot.egg-info/SOURCES.txt'
+[2.509s] reading manifest file 'rosbot.egg-info/SOURCES.txt'
+[2.510s] writing manifest file 'rosbot.egg-info/SOURCES.txt'
+[2.514s] running build_ext
+[2.514s] Creating /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/lib/python3.10/site-packages/rosbot.egg-link (link to .)
+[2.516s] Installing teleop_joy script to /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/lib/rosbot
+[2.516s] 
+[2.516s] Installed /home/ubuntu/ros2_ws/src/rosbot/build/rosbot
+[2.517s] running symlink_data
+[2.517s] creating /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/ament_index
+[2.517s] creating /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/ament_index/resource_index
+[2.517s] creating /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/ament_index/resource_index/packages
+[2.517s] symbolically linking /home/ubuntu/ros2_ws/src/rosbot/build/rosbot/resource/rosbot -> /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/ament_index/resource_index/packages
+[2.517s] symbolically linking /home/ubuntu/ros2_ws/src/rosbot/build/rosbot/package.xml -> /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/rosbot
+[2.518s] creating /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/rosbot/launch
+[2.518s] symbolically linking /home/ubuntu/ros2_ws/src/rosbot/build/rosbot/launch/launch.py -> /home/ubuntu/ros2_ws/src/rosbot/install/rosbot/share/rosbot/launch
+[2.598s] Invoked command in '/home/ubuntu/ros2_ws/src/rosbot/build/rosbot' returned '0': PYTHONPATH=/home/ubuntu/ros2_ws/src/rosbot/build/rosbot/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ubuntu/ros2_ws/src/rosbot/install/rosbot/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ubuntu/ros2_ws/src/rosbot/build/rosbot/build --no-deps symlink_data

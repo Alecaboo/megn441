@@ -1,0 +1,3 @@
+[console_scripts]
+teleop_joy = rosbot.teleop_joy:main
+
