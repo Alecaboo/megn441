@@ -4,11 +4,11 @@ jetrover_ws
 ros2_ws/build
 ros2_ws/install
 ros2_ws/log
-ros2_ws/src/OrbbecSDK_ROS2
-ros2_ws/src/sllidar_ros2
+demo_ws/build
+demo_ws/install
+demo_ws/log
+dev_ws
+test_ws
+dev_ws
 moveit_ws
-ros2_ws/src/teleop
-ros2_ws/src/keyboard
-ros2_ws/src/rosbot
-ros2_ws/src/myslam
 *.zip
